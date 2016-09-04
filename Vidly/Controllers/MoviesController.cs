@@ -31,6 +31,21 @@ namespace Vidly.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public ActionResult Index()
+        {
+            var movies = GetMovies();
+            return View(movies);
+        }
+        
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "The Matrix" },
+                new Movie { Id = 2, Name = "Inception" }
+            };
         }        
     }
 }
