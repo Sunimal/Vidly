@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public class MembershipTypes
+    public class MembershipType
     {
         public byte Id { get; set; }
         public short SignUpFee { get; set; }
