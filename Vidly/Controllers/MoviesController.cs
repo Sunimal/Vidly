@@ -63,7 +63,7 @@ namespace Vidly.Controllers
 
         public ActionResult Details(int Id)
         {
-            var movie = _context.Movies.SingleOrDefault(c => c.Id == Id);
+            var movie = _context.Movies.Include( c => c.Genre).SingleOrDefault(c => c.Id == Id);
             return View(movie);
         }        
     }
