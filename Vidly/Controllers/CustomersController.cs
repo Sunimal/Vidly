@@ -33,7 +33,7 @@ namespace Vidly.Controllers
         public ActionResult Details(int id)
         {
             //var customer = GetCustomers().SingleOrDefault(c => c.id == id);
-            var customer = _context.Customers.SingleOrDefault(c => c.id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.id == id);
             if (customer == null)
                 return HttpNotFound();
 
