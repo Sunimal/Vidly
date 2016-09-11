@@ -15,6 +15,7 @@ else
     <table class="table table-bordered table-hover">
         <thead>
         <th>Movies</th>
+        <th>Genre</th>
         </thead>
         <tbody>
             @foreach (var movie in Model)
@@ -22,6 +23,9 @@ else
                 <tr>
                     <td>
                         @movie.Name
+                    </td>
+                    <td>
+                        @movie.Genre.Name
                     </td>
                 </tr>
 
