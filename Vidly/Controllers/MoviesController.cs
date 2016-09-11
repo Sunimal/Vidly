@@ -11,6 +11,18 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new Models.ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ActionResult Random()
         {
             var movie = new Movie()
@@ -35,7 +47,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies.ToList();
             return View(movies);
         }
         
@@ -46,6 +58,12 @@ namespace Vidly.Controllers
                 new Movie { Id = 1, Name = "The Matrix" },
                 new Movie { Id = 2, Name = "Inception" }
             };
+        }
+
+        public ActionResult Details(int Id)
+        {
+
+            return View();
         }        
     }
 }
