@@ -53,7 +53,7 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();
